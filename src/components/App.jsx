@@ -53,18 +53,13 @@ export default class App extends Component {
   //   console.log(snapshot);
   // }
   componentDidMount() {
-    // console.log('component did mount');
     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-    console.log('parsedContacts', parsedContacts);
-    if(parsedContacts) {
+      if(parsedContacts) {
       this.setState({contacts: parsedContacts});
     }
     
   }
   componentDidUpdate(prevProps, prevState) {
-    // console.log(prevProps);
-    // console.log(prevState);
-    console.log(this.state);
     if(this.state.contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
@@ -72,7 +67,6 @@ export default class App extends Component {
 
 
   render() {
-    console.log('App render');
     const {contacts, filter} = this.state;
     return(
       <>
